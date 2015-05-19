@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <style type="text/css">
+    html, body {
+	  font: normal normal 400 16px 'Segoe UI',Arial,Helvetica,sans-serif;
+	  background-color: #eee;
+	  margin: 0;
+	  padding: 0;
+	}
+	
+	div {
+	  box-sizing: border-box;
+	}
+	
+	#wrapper {
+	  display: inline-block;
+	  width: 100%;
+	  height: 24px;
+	}
+	
+    #progressContainer {
+      position: relative;
+      height: 100%;
+	  width: 100%;
+      background-color: #ddd;
+      overflow: hidden;
+    }
+
+    #activeProgress {
+	  margin: auto;
+	  height: 100%;
+	  width: 10%;
+      background-color: #0f0;
+      transform-origin: center center;
+      animation: variable-bar 1.5s linear infinite;
+    }
+	
+    @keyframes variable-bar {
+      0% {
+        transform: translate(-500%);
+      }
+      50% {
+        transform: translate(0%);
+      }
+      100% {
+        transform: translate(500%);
+      }
+    }
+	
+	.bugNotice {
+	  width: 100%;
+	  max-width: 640px;
+	  margin: auto;
+	}
+	
+	.content {
+	  padding: 8px;
+	  margin: 8px;
+	  border-radius: 2px;
+	  box-shadow: 0 1px 3px #ccc;
+	  background-color: #fafafa;
+	}
+	
+	h1 {
+	  font-size: 28px;
+	  text-align: center;
+	  font-weight: 300;
+	}
+	
+	.emphasize {
+	  font-weight: 600;
+	}
+	
+	h1, p {
+	  margin: 8px;
+	}
+	
+	pre {
+	  font: normal normal 400 14px Consolas,'Lucida Console','Source Sans Pro','Courier New',Courier,monospace;
+	  white-space: pre-wrap;
+	}
+  </style>
+</head>
+<body>
+  <div class="bugNotice">
+    <div class="content">
+      <h1>Internet Explorer 10/11/Edge Animation Bug</h1>
+	</div>
+	<div class="content">
+	  <p>
+	    Internet Explorer, when dealing with a percentage-width element with
+		transforms with percentages and an interstitial keyframe, doesn't
+		recalculate the sizes for the animation properly upon resize.
+	  </p>
+	  <p>
+		As an example, if the progress bar below begins its animation when the
+		window is narrow, and then the window grows wider, the animation will
+		take place in a small section in the middle of the window roughly as
+		wide as the window was before.
+	  </p>
+	</div>
+  </div>
+  <div id="wrapper">
+    <div id="progressContainer">
+	  <div id="activeProgress"></div>
+	</div>
+  </div>
+  <div class="bugNotice">
+    <div class="content">
+      <p class="emphasize">
+	    To better be able to see this bug in action, resize the window to a
+		narrower width and refresh. Then, widen the window.
+	  </p>
+	</div>
+	<div class="content">
+	  <pre>@keyframes variable-bar {
+  0% {
+	transform: translate(-500%);
+  }
+  /* Removing the below keyframe (50%) corrects the behavior. */
+  50% {
+	transform: translate(0%);
+  }
+  100% {
+	transform: translate(500%);
+  }
+}</pre>
+	</div>
+  </div>
+</body>
+</html>
