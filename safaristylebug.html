@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Internet Explorer 10/11/Edge CSS Animation Bug</title>
+  <title>Safari CSS Animation Bug</title>
   <style type="text/css">
     html, body {
-	  font: normal normal 400 16px 'Segoe UI',Arial,Helvetica,sans-serif;
+	  font: normal normal 400 16px 'Helvetica Neue','Lucida Grande',Helvetica,Arial,sans-serif;
 	  background-color: #eee;
 	  margin: 0;
 	  padding: 0;
@@ -33,19 +33,16 @@
 	  height: 100%;
 	  width: 10%;
       background-color: #0f0;
-      transform-origin: center center;
-      animation: variable-bar 1.5s linear infinite;
+      -webkit-transform-origin: center center;
+      -webkit-animation: variable-bar 1.5s linear infinite;
     }
 	
-    @keyframes variable-bar {
+    @-webkit-keyframes variable-bar {
       0% {
-        transform: translate(-500%);
-      }
-      50% {
-        transform: translate(0%);
+        -webkit-transform: translate(-500%);
       }
       100% {
-        transform: translate(500%);
+        -webkit-transform: translate(500%);
       }
     }
 	
@@ -78,7 +75,7 @@
 	}
 	
 	pre {
-	  font: normal normal 400 14px Consolas,'Lucida Console','Source Sans Pro','Courier New',Courier,monospace;
+	  font: normal normal 400 14px 'Monaco','Source Code Pro','Courier New',Courier,monospace;
 	  white-space: pre-wrap;
 	}
   </style>
@@ -86,13 +83,13 @@
 <body>
   <div class="bugNotice">
     <div class="content">
-      <h1>Internet Explorer 10/11/Edge CSS Animation Bug</h1>
+      <h1>Safari CSS Animation Bug</h1>
 	</div>
 	<div class="content">
 	  <p>
-	    Internet Explorer, when dealing with a percentage-width element with
-		transforms with percentages and an interstitial keyframe, doesn't
-		recalculate the sizes for the animation properly upon resize.
+	    Safari, when dealing with a percentage-width element with transforms
+		with percentages, doesn't recalculate the sizes for the animation
+		properly upon resize.
 	  </p>
 	  <p>
 		As an example, if the progress bar below begins its animation when the
@@ -115,16 +112,12 @@
 	  </p>
 	</div>
 	<div class="content">
-	  <pre>@keyframes variable-bar {
+	  <pre>@-webkit-keyframes variable-bar {
   0% {
-	transform: translate(-500%);
-  }
-  /* Removing the below keyframe (50%) corrects the behavior. */
-  50% {
-	transform: translate(0%);
+	-webkit-transform: translate(-500%);
   }
   100% {
-	transform: translate(500%);
+	-webkit-transform: translate(500%);
   }
 }</pre>
 	</div>
