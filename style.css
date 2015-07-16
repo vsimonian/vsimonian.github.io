@@ -1,0 +1,142 @@
+@import url('//fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+html, body {
+  font: normal normal 400 24px Roboto,Noto,'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  background: #eee;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0;
+  padding: 0;
+}
+
+div, section {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: #304FFE;
+}
+
+a:visited {
+  color: #3D5AFE;
+}
+
+a:hover, a:focus, a:active {
+  text-decoration: underline;
+}
+
+.inline-page {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  min-height: 512px;
+  height: 100vh;
+}
+
+.inline-page header, .inline-page content {
+  padding: 32px;
+}
+
+.inline-page header h1, .inline-page header h2, .inline-page header h3,
+.inline-page header h4, .inline-page header h5, .inline-page header h6 {
+  margin: 0;
+}
+
+.inline-page content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.inline-page ul {
+  margin: 0;
+}
+
+.inline-page li {
+  margin: 16px 0;
+}
+
+.jumbotron {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  font-size: 24px;
+  color: #fff;
+  background: #3F51B5;
+}
+
+.jumbotron h1 {
+  margin: 0;
+  font-size: 48px;
+}
+
+@media (max-width: 800px) {
+  .jumbotron {
+    display: block;
+  }
+  .jumbotron h1 {
+    font-size: 36px;
+  }
+}
+
+.profile-photo, .profile-desc {
+  width: 50%;
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .profile-photo {
+    width: 60%;
+  }
+  .profile-desc {
+    width: 40%;
+  }
+}
+
+@media (max-width: 800px) {
+  .profile-photo, .profile-desc {
+    width: 100%;
+  }
+  .profile-photo {
+    min-height: 320px;
+    height: 62vh;
+  }
+  .profile-desc {
+    min-height: 192px;
+    height: 38vh;
+    flex: 1;
+  }
+}
+
+.profile-photo {
+  background: url('profile.jpg');
+  background-size: cover;
+  background-position: left center;
+}
+
+.profile-desc {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.resources {
+  background: #C5CAE9;
+}
