@@ -1,11 +1,22 @@
 @import url('//fonts.googleapis.com/css?family=Roboto:300,400,500');
 
 html, body {
-  font: normal normal 400 24px Roboto,Noto,'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  background: #eee;
-  color: rgba(0, 0, 0, 0.87);
+  font: normal normal 400 20px Roboto,Noto,'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  color: #212121;
   margin: 0;
   padding: 0;
+}
+
+html {
+  background-color: #eee;
+  background-image: url('landscapebg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body {
+  background-color: transparent;
+  padding: 8px;
 }
 
 div, section {
@@ -18,121 +29,92 @@ div, section {
 }
 
 h1, h2, h3 {
-  font-weight: 300;
+  color: #212121;
+  text-align: center;
+  font-weight: 400;
+  margin: 8px;
+}
+
+h1 {
+  font-size: 28px; 
+}
+
+h2 {
+  font-size: 20px;
 }
 
 a {
   text-decoration: none;
-  color: #304FFE;
+  color: #1976D2;
 }
 
 a:visited {
-  color: #3D5AFE;
+  color: #3F51B5;
 }
 
-a:hover, a:focus, a:active {
-  text-decoration: underline;
-}
-
-.inline-page {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  min-height: 512px;
-  height: 100vh;
-}
-
-.inline-page header, .inline-page content {
-  padding: 32px;
-}
-
-.inline-page header h1, .inline-page header h2, .inline-page header h3,
-.inline-page header h4, .inline-page header h5, .inline-page header h6 {
+.subtitle {
   margin: 0;
+  text-align: center;
 }
 
-.inline-page content {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  justify-content: center;
-  flex: 1;
-}
-
-.inline-page ul {
-  margin: 0;
-}
-
-.inline-page li {
-  margin: 16px 0;
-}
-
-.jumbotron {
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  font-size: 24px;
-  color: #fff;
-  background: #3F51B5;
-}
-
-.jumbotron h1 {
-  margin: 0;
-  font-size: 48px;
-}
-
-@media (max-width: 800px) {
-  .jumbotron {
-    display: block;
-  }
-  .jumbotron h1 {
-    font-size: 36px;
-  }
-}
-
-.profile-photo, .profile-desc {
-  width: 50%;
-  height: 100%;
-}
-
-@media (max-width: 1024px) {
-  .profile-photo {
-    width: 60%;
-  }
-  .profile-desc {
-    width: 40%;
-  }
-}
-
-@media (max-width: 800px) {
-  .profile-photo, .profile-desc {
-    width: 100%;
-  }
-  .profile-photo {
-    min-height: 320px;
-    height: 62vh;
-  }
-  .profile-desc {
-    min-height: 192px;
-    height: 38vh;
-    flex: 1;
-  }
+.card {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin: 24px auto;
+  max-width: 600px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #757575;
 }
 
 .profile-photo {
-  background: url('profile.jpg');
+  background-image: url('profile.jpg');
   background-size: cover;
-  background-position: left center;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
 }
 
-.profile-desc {
-  display: -webkit-flex;
+.resources {
+  text-align: center;
   display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: center;
   justify-content: center;
-  padding: 32px;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
+.resources a {
+  margin: 8px;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  text-transform: uppercase;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resources a span {
+  display: block;
+  width: 100%;
+}
+
+.resources a:hover, .resources a:active, .resources a:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 600px) and (orientation: portrait) {
+  .resources a {
+    width: 150px;
+    height: 75px;
+  }
+}
+
